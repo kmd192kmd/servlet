@@ -1,0 +1,56 @@
+프로젝트 생성
+- Dynamic Web Project > "JSPTest" > "jsp" + web.xml(v)
+
+
+Servlet > 알바생
+- 자바 기반
+- 자바 코드 > 관리 용이
+- 클라이언트 코드 > 관리 불편(문자열 처리)
+
+JSP > 알바생
+- HTML 기반
+- 클라이언트 코드 > 관리 용이
+- 자바 코드 > 관리 약간 불편
+
+
+Servlet
+- server + let
+- 자바는 브라우저가 호출 불가능 > 가상 주소
+
+JSP, Java Server Pages
+- 자바를 사용해서 서버측에서 웹 페이지를 만드는 기술
+- JSP는 서블릿입니다.(*****)
+- JSP는 톰캣이 HTML와 동일하게 취급 > 브라우저가 직접 호출 가능
+
+Servlet/JSP Container > 톰캣
+
+
+- src > main > webapp > "ex01.jsp"
+
+
+
+JSP 구성 요소
+
+1. JSP 지시자, JSP Directive
+	- <%@ %>
+	- JSP Container(톰캣)에게 페이지 처리를 위한 여러가지 상황을 전달
+
+2. 스크립트 요소, Scripting Elements
+
+3. 액션 태그, Action Tags
+
+4. 내장 객체, Built-in Objects
+
+
+
+
+
+
+
+
+
+
+
+
+
+
