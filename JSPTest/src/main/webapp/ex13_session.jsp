@@ -11,17 +11,26 @@
 	</style>
 </head>
 <body>
-	<!-- ex03.jsp -->
-	<h1>커뮤니티</h1>
+	<!-- ex13_session.jsp -->
+	<h1>Session & Application</h1>
 	
-	<p>이런 기능</p>
-	<p>저린 기능</p>
+	<%
 	
-	<!-- 클라이언트 기술 > 브라우저에서 합치기 -->
-	<!-- <iframe src="inc/copyright.jsp" width="800" scrolling="no" frameborder="no"></iframe> -->
+		int a = 10; //지역변수
+		session.setAttribute("b", 20); //세션변수
+		application.setAttribute("c", 30);
 	
-	<!-- 서버 기술 > 톰캣에서 합치기 -->
-	<%@ include file="inc/copyright.jsp" %>
+	%>
+	
+	<div>a: <%= a %></div>
+	<div>b: <%= session.getAttribute("b") %></div>
+	<div>c: <%= application.getAttribute("c") %></div>
+	
+	<div><a href="ex13_session_2.jsp">두번째 페이지</a></div>
+	
+	<%
+		//pageContext.forward("ex13_session_2.jsp");
+	%>
 	
 	<script src="https://code.jquery.com/jquery-4.0.0.js"></script>
 	<script src="https://bit.ly/4cMuheh"></script>

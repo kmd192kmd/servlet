@@ -26,6 +26,8 @@
 		}
 	%>
 	
+	<%@ include file="inc/copyright.jsp" %>
+	
 </body>
 </html>
 
