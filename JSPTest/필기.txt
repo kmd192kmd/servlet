@@ -235,6 +235,115 @@ session(*****) & application
 - "ex14_session.jsp"
 
 
+- "ex15_session.jsp"
+- "ex15_set.jsp"
+- "ex15_del.jsp"
+- "ex15_interval.jsp"
+- "ex15_reset.jsp"
+
+
+*** 웹(http://, https://)은 비연결 지향이다.(Connectionless)
+- 웹 초창기 > 회선 느림
+
+
+
+
+
+
+
+
+파일 업로드/다운로드
+- Servlet/JSP
+- cos.jar
+
+
+단일 파일 업로드
+- "ex16.jsp"	//입력
+- "ex16ok.jsp"	//처리
+
+다중 파일 업로드
+- "ex17.jsp"
+- "ex17ok.jsp"
+
+
+이미지 뷰어(갤러리)
+- "ex18.jsp"		//메인 페이지
+- "ex18ok.jsp"		//업로드 처리 페이지
+- "ex18del.jsp"		//삭제 처리 페이지
+
+
+
+EL + JSTL
+- JSP 페이지에서 자바 문법을 없애자!!
+- <% %>  -> JSTL
+- <%= %> -> EL
+
+EL, Expression Language
+- ${}
+- 자바의 값을 HTML 문서에 출력
+- <%= %> 역할 + 많은 기능
+- "ex20_el.jsp"
+
+
+JSTL, Java Standard Tag Library
+- 모양 > 태그
+- 프로그래밍 기능을 가진 태그
+
+
+
+
+쿠키, Cookie
+- 브라우저의 기능 중 하나 > 데이터 저장소
+- JavaScript or 서버 언어(Java) > 접근 + 조작
+- 용도: 사용자(브라우저)가 웹 사이트 접속 > 개인 정보를 저장하는 경우 > 쿠키를 사용 > 지속적으로 보관/수정/열람 등
+
+
+쿠키 vs 세션
+- 개인적인 공간
+- 특정 웹 페이지에 종속적이지 않다. > 어디서든 접근 가능 공간
+
+쿠키의 종류
+1. 메모리 쿠키
+	- 메모리 생성 > 브라우저를 닫으면 사라진다.
+2. 하드 쿠키
+	- 하드 생성 > 계속 보관 가능
+	- 쿠키에 만료 시간 지정
+
+
+- "ex23_cookie.jsp"
+- "ex23_cookie_2.jsp"
+
+- "ex24_cookie.jsp"
+- "ex24_cookie_ok.jsp"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,19 +1,5 @@
-<%@page import="java.io.File"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	
-	String filename = request.getParameter("filename");
-
-	String path = application.getRealPath("/files");
-	System.out.println(path);
-	
-	File file = new File(path + "/" + filename);
-	file.delete();
-	
-	response.sendRedirect("ex19p.jsp");
-
-%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -25,18 +11,22 @@
 	</style>
 </head>
 <body>
+	<!-- ex23_cookie_2.jsp -->
+	<h1>두번째 페이지</h1>
 	
 	<script src="https://code.jquery.com/jquery-4.0.0.js"></script>
 	<script src="https://bit.ly/4cMuheh"></script>
+	<script src="js/cookie.js"></script>
 	<script>
-		
+	
+		console.log(getCookie('name'));
+		console.log(getCookie('kor'));
+		console.log(getCookie('eng'));
+		console.log(getCookie('math'));
+	
 	</script>
 </body>
 </html>
-
-
-
-
 
 
 
