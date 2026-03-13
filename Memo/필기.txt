@@ -27,6 +27,7 @@ DB
 
 패키지 or 파일 생성
 
+- 템플릿  : webapp > "template.jsp"
 - 목록보기: webapp > "list.jsp"
   (시작)
 - 쓰기    : webapp > "add.jsp"(폼), "addok.jsp"(처리)
@@ -44,7 +45,9 @@ DB
 
 
 
-
+mvc
+od
+auth
 
 
 

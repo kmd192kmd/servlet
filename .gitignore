@@ -14,9 +14,12 @@ local.properties
 .loadpath
 .recommenders
 
+# Eclipse / STS Server Configuration folders
+/Servers/
+
 # 모든 프로젝트의 build 폴더 제외
 **/build/
-
+ 
 # External tool builders
 .externalToolBuilders/
 

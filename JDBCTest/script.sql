@@ -23,13 +23,22 @@ select * from tblAddress;
 
 update tblAddress set address = '서울시 강남구 역삼동' where seq = 1;
 
-delete from tblAddress where seq = 6;
+delete from tblAddress where seq = 5;
 
 commit;
 
 select * from tabs;
+select * from tblAddress2;
 
+insert into tblAddress (seq, name, age, gender, tel, address, regdate) values (seqAddress.nextval, '거북이', 100, 'm',
+                                                                               '010-1234-5678', '제주도 남해', default);
 select count(*) from tblAddress;
 
-select name from tblAddress where seq = 12;
 
+
+select name from tblAddress where seq = 10;
+
+select * from tblAddress where seq = 12;
+
+
+insert into tblAddress (seq, name, age, gender, tel, address, regdate) values (seqAddress.nextVal, '꿀꿀이2', 3, 'm', '010-1234-5678', '서울시 강동구 천호동 Dog's Home', default)
