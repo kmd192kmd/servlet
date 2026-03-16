@@ -1,0 +1,13 @@
+@WebServlet(value = "/${name}.do")
+public class ${primary_type_name} extends HttpServlet {
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		//${primary_type_name}.java
+		${cursor}
+		
+		req.getRequestDispatcher("/WEB-INF/views/${name}.jsp").forward(req, resp);
+	}
+
+}

@@ -1,4 +1,4 @@
-package com.test.java.admin;
+package com.test.semi.user;
 
 import java.io.IOException;
 
@@ -9,24 +9,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.test.java.model.AuthDto;
+import com.test.semi.model.UserDto;
 
-@WebServlet(value = "/admin/admin.do")
-public class Admin extends HttpServlet {
+@WebServlet(value = "/user/info.do")
+public class Info extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		//Admin.java
+		//Info.java
+		//1. DB 작업 > select
+		//2. JSP 호출하기(+UserDto)
+		
 		HttpSession session = req.getSession();
 		
-		if(session.getAttribute("auth") == null || !((AuthDto)session.getAttribute("authDto")).getGrade().equals("2")) {
-			resp.sendRedirect("/auth/index.do");
-			return;
-		}
-
-		req.getRequestDispatcher("/WEB-INF/views/admin/admin.jsp").forward(req, resp);
+		UserService service = new UserService();
+		UserDto dto = service.info((String)session.getAttribute("auth"));
+		
+		
+		req.setAttribute("dto", dto);
+		
+		req.getRequestDispatcher("/WEB-INF/views/user/info.jsp").forward(req, resp);
 	}
 
 }
+
+
+
+
+
 

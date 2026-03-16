@@ -24,7 +24,7 @@ public class AuthDao extends BasicDao {
 				
 				return dto;
 				
-			} else {	
+			} else {
 				//로그인 실패
 				return null;
 			}

@@ -1,4 +1,4 @@
-package com.test.java;
+package com.test.semi;
 
 import java.io.IOException;
 
@@ -16,7 +16,7 @@ public class Index extends HttpServlet {
 
 		//Index.java
 		
-		
+
 		req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
 	}
 

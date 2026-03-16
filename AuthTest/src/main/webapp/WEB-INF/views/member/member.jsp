@@ -13,6 +13,9 @@
 </head>
 <body>
 	<!-- member.jsp -->
+	<h1>회원 전용 페이지</h1>
+	
+	<div>로그인 한 유저만 볼 수 있는 페이지입니다.</div>
 	
 	<script src="https://code.jquery.com/jquery-4.0.0.js"></script>
 	<script src="https://bit.ly/4cMuheh"></script>
