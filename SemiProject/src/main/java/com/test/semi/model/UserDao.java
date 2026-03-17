@@ -1,6 +1,6 @@
 package com.test.semi.model;
 
-import com.test.library.BasicDao;
+import com.java.library.BasicDao;
 
 public class UserDao extends BasicDao {
 
