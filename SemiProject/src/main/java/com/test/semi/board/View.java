@@ -1,6 +1,8 @@
 package com.test.semi.board;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.test.semi.model.BoardDto;
+import com.test.semi.model.CommentDao;
+import com.test.semi.model.CommentDto;
 
 @WebServlet(value = "/board/view.do")
 public class View extends HttpServlet {
@@ -25,6 +29,15 @@ public class View extends HttpServlet {
 		HttpSession session = req.getSession();
 		
 		String seq = req.getParameter("seq");
+		String column = req.getParameter("column");
+		String word = req.getParameter("word");
+		String search = req.getParameter("search");
+		
+		HashMap<String,String> map = new HashMap<String,String>();
+		
+		map.put("column", column);
+		map.put("word", word);
+		map.put("search", search);
 		
 		BoardService service = new BoardService();
 		
@@ -36,8 +49,34 @@ public class View extends HttpServlet {
 		}
 		
 		BoardDto dto = service.get(seq);
+		
+		//예외 > 서비스의 업무지만 컨트롤러에서 작업
+		if(search.equals("y") && column.equals("content") || column.equals("all")) {
+			//검색어 부각시키기
+			
+			String content = dto.getContent();
+			
+			content = content.replace(word, "<span style=\"background-color: gold; color: tomato;\">" + word + "</span>");
+			
+			dto.setContent(content);
+			
+		}
+		
+		
+		
+		//댓글 목록 가져오기
+		CommentDao dao = new CommentDao();
+		
+		ArrayList<CommentDto> clist = dao.clist(seq);
+		
+		
+		
+		
+
 				
 		req.setAttribute("dto", dto);
+		req.setAttribute("map", map);
+		req.setAttribute("clist", clist);	
 
 		req.getRequestDispatcher("/WEB-INF/views/board/view.jsp").forward(req, resp);
 	}

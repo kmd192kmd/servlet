@@ -15,7 +15,7 @@ public class EncodingFilter implements Filter {
 	
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		System.out.println("필터가 생성되었습니다.");
+		//System.out.println("필터가 생성되었습니다.");
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class EncodingFilter implements Filter {
 	
 	@Override
 	public void destroy() {
-		System.out.println("필터가 소멸되었습니다.");
+		//System.out.println("필터가 소멸되었습니다.");
 	}	
 	
 }

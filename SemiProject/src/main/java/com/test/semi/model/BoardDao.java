@@ -1,6 +1,7 @@
 package com.test.semi.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.java.library.BasicDao;
 
@@ -27,11 +28,39 @@ public class BoardDao extends BasicDao {
 	}
 
 	//*** DAO에서는 데이터 가공 최대한 금지
-	public ArrayList<BoardDto> list() {
+	public ArrayList<BoardDto> list(HashMap<String, String> map) {
 		
 		try {
 			
-			String sql = "select * from vwBoard";
+			//목록보기: select * from vwBoard
+			//검색하기: select * from vwBoard where 조건
+			
+			String where = "";
+			
+			if (map.get("search").equals("y")) {
+				
+				//- where subject like '%검색어%'
+				//- where content like '%검색어%'
+				//- where name like '%검색어%'
+				//- where subject like '%검색어%' or content like '%검색어%'
+				
+				if (!map.get("column").equals("all")) {
+					where = String.format("where %s like '%%%s%%'"
+										, map.get("column")
+										, map.get("word"));
+				} else {
+					//UnknownFormatConversionException: Conversion = ''
+					where = String.format("where subject like '%%%s%%' or content like '%%%s%%'", map.get("word"), map.get("word"));
+				}
+				
+			}
+			
+			String sql = "";		
+			
+			sql = String.format("select * from (select a.*, rownum as rnum from vwBoard a %s) where rnum between %s and %s"
+							, where
+							, map.get("begin")
+							, map.get("end"));
 			
 			rs = stat.executeQuery(sql);
 			
@@ -50,6 +79,8 @@ public class BoardDao extends BasicDao {
 				
 				dto.setName(rs.getString("name"));
 				dto.setIsnew(rs.getDouble("isnew"));
+				
+				dto.setCommentCount(rs.getString("commentCount"));
 				
 				list.add(dto);				
 			}
@@ -141,6 +172,39 @@ public class BoardDao extends BasicDao {
 			pstat.setString(1, seq);
 			
 			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+
+	public int getTotalCount(HashMap<String, String> map) {
+		
+		try {
+			
+			String where = "";
+			
+			if (map.get("search").equals("y")) {
+				
+				if (!map.get("column").equals("all")) {
+					where = String.format("where %s like '%%%s%%'"
+										, map.get("column")
+										, map.get("word"));
+				} else {
+					where = String.format("where subject like '%%%s%%' or content like '%%%s%%'", map.get("word"), map.get("word"));
+				}
+				
+			}
+			
+			String sql = "select count(*) as cnt from vwBoard " + where;
+			
+			rs = stat.executeQuery(sql);
+			
+			if (rs.next()) {
+				return rs.getInt("cnt");
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
